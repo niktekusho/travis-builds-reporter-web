@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(JSON.stringify(action, null, ' '));
   switch (action.type) {
     case RETRIEVE:
       return { ...state, repository: action.repository, isFetching: true };

@@ -52,7 +52,7 @@ const TextStats = (props) => {
       </div>
     );
   }
-  return <div></div>;
+  return (null);
 };
 
 TextStats.propTypes = {

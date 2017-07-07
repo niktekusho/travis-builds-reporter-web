@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {teal100} from 'material-ui/styles/colors';
+import {connect} from 'react-redux';
 
 import logo from './logo.svg';
 import './App.css';
 
-import TextStats from './components/TextStats';
-import { fetch } from './store/actions';
+import BuildsPage from './components/BuildsPage';
+import {fetch} from './store/actions';
+
+// Material-UI Theme
+const muiTheme = getMuiTheme();
 
 class App extends Component {
   constructor(props) {
@@ -29,9 +37,13 @@ class App extends Component {
     });
   }
 
+  getRepository() {
+    return `${this.state.repositoryAuthor}/${this.state.repository}`;
+  }
+
   submit() {
-    const repo = `${this.state.repositoryAuthor}/${this.state.repository}`;
-    const { dispatch } = this.props;
+    const repo = this.getRepository();
+    const {dispatch} = this.props;
     dispatch(fetch(repo));
   }
 
@@ -43,47 +55,37 @@ class App extends Component {
   }
 
   render() {
-    const { builds, isFetching } = this.props;
-
-    let renderNext = (null);
-    if (isFetching) {
-      renderNext = <div>loading... </div>;
-    } else {
-      if (builds.length > 0) {
-        renderNext = <TextStats builds={builds} />;
-      }
-    }
+    const {builds, isFetching} = this.props;
 
     return (
-      <div className="App">
-        <h1>
-          This tool returns basic builds statistics for a Travis enabled <span className="importantText">PUBLIC-ONLY</span> repository.
-        </h1>
-        <div>
-          <input
-            type="text"
-            name="repository-name"
-            value={this.state.repositoryAuthor}
-            placeholder="Repository user's name"
-            onChange={event => this.repositoryAuthorChanged(event)}
-          />
-          /
-          <input
-            type="text"
-            name="repository"
-            value={this.state.repository}
-            placeholder="Repository name"
-            onChange={event => this.repositoryChanged(event)}
-          />
-          <button onClick={() => this.submit()}>Fetch</button>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div className="App">
+          <h1>
+            This tool returns basic builds statistics for a Travis enabled <span
+            className="importantText">PUBLIC-ONLY</span> repository.
+          </h1>
+          <div>
+            <div>
+              <TextField
+                floatingLabelText="Repository user's name"
+                onChange={event => this.repositoryAuthorChanged(event)}
+              />
+              /
+              <TextField
+                floatingLabelText="Repository name"
+                onChange={event => this.repositoryChanged(event)}
+              />
+            </div>
+          </div>
+          <RaisedButton primary={true} onClick={() => this.submit()} label="Fetch"/>
+          <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds}/>
         </div>
-        {renderNext}
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
 const mapStateToProps = state => {
-  const { repository, builds, isFetching } = state;
+  const {repository, builds, isFetching} = state;
   return {
     repository,
     builds,
