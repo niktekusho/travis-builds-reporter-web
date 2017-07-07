@@ -24,6 +24,6 @@ export const fetched = (builds) => {
 
 export const fetch = repository => (dispatch) => {
   dispatch(retrieve(repository));
-  return fetcher.fetch('or-bit/monolith', client.create(axios))
+  return fetcher.fetch(repository, client.create(axios))
     .then(builds => dispatch(fetched(builds)));
 };
