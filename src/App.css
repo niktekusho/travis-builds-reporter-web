@@ -22,3 +22,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.pretty-div {
+  font-size: larger;
+}
+
+.pretty-span {
+  font-style: italic;
+    font-weight: bold;
+}
+
+.pretty-repo {
+  font-weight: bold;
+}
+
+.builds-ok {
+ color: darkgreen;
+}
+
+.builds-cancel {
+ color: dimgrey;
+}
+
+.builds-error {
+ color: crimson;
+}

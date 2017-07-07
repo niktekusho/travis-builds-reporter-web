@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import CircularProgress from 'material-ui/CircularProgress';
 import SwipeableViews from 'react-swipeable-views';
 
 import PrettyTextStats from './PrettyTextStats';
 import TextStats from './TextStats';
-
-// Material-UI Theme
-const muiTheme = getMuiTheme();
 
 export default class BuildsPage  extends React.Component {
   constructor(props) {

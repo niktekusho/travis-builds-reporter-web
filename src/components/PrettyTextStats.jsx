@@ -17,18 +17,18 @@ const PrettyTextStats = (props) => {
     const maxDuration = buildsUtils.getMaximumBuildsDuration(builds);
 
     return (
-      <div>
+      <div className="pretty-div">
         <p>
-          The repository <span>{props.repository}</span> has a total of <span>{buildsCount}</span> builds.
+          The repository <span className="pretty-span pretty-repo">{props.repository}</span> has a total of <span className="pretty-span">{buildsCount} builds</span>.
         </p>
         <p>
-          <span>{successCount}</span> builds succeeded (about <span>{successRate} %</span>), while <span>{canceledCount}</span> builds were canceled.
+          <span className="pretty-span">{successCount} builds </span> <span className="pretty-span builds-ok">succeeded</span> (about <span className="pretty-span pretty-percent">{successRate} %</span>), while <span className="pretty-span">{canceledCount} builds</span> were <span className="pretty-span builds-cancel">canceled</span>.
         </p>
         <p>
-          <span>{failedCount + erroredCount}</span> builds were not completed due to errors.
+          <span className="pretty-span">{failedCount + erroredCount}</span> builds were <span className="pretty-span builds-error">not completed due to errors</span>.
         </p>
         <p>
-          The average builds duration time is <span>{avgDuration} seconds</span> [<span>{minDuration} seconds</span>, <span>{maxDuration} seconds</span>].
+          The average builds duration time is <span className="pretty-span builds-time">{avgDuration} seconds</span> [<span className="pretty-span builds-time">{minDuration} seconds</span>, <span className="pretty-span builds-time">{maxDuration} seconds</span>].
         </p>
       </div>
     );
