@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import CircularProgress from 'material-ui/CircularProgress';
 import SwipeableViews from 'react-swipeable-views';
 
 import PrettyTextStats from './PrettyTextStats';
@@ -32,7 +33,7 @@ export default class BuildsPage  extends React.Component {
 
     const { isFetching, builds, repository } = this.props;
     if (isFetching) {
-      return <div><h3>loading...</h3></div>;
+      return <div><CircularProgress size={100} thickness={6} /></div>;
     } else {
       if (builds != null && builds.length > 0) {
         return (
