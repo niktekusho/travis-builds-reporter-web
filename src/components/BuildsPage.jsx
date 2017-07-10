@@ -6,7 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import SwipeableViews from 'react-swipeable-views';
 
 import PrettyTextStats from './PrettyTextStats';
-import TextStats from './TextStats';
+import TableStats from './TableStats';
 
 export default class BuildsPage  extends React.Component {
   constructor(props) {
@@ -18,7 +18,6 @@ export default class BuildsPage  extends React.Component {
   }
 
   handleChange = (value) => {
-    console.log(value);
     this.setState({
       index: value,
     });
@@ -41,7 +40,7 @@ export default class BuildsPage  extends React.Component {
             </Tabs>
             <SwipeableViews index={index} onIndexChange={this.handleChange}>
               <PrettyTextStats builds={builds} repository={repository} />
-              <TextStats builds={builds} />
+              <TableStats builds={builds} />
               <p>WIP</p>
             </SwipeableViews>
           </div>
