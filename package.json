@@ -12,10 +12,10 @@
     "react-scripts": "1.0.10",
     "react-swipeable-views": "^0.12.3",
     "react-tap-event-plugin": "^2.0.1",
-    "recharts": "^1.0.0-alpha.1",
+    "recharts": "^0.22.2",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "travis-builds-reporter-core": "0.0.2"
+    "travis-builds-reporter-core": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

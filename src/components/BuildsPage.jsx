@@ -7,6 +7,7 @@ import SwipeableViews from 'react-swipeable-views';
 
 import PrettyTextStats from './PrettyTextStats';
 import TableStats from './TableStats';
+import GraphStats from './GraphStats';
 
 export default class BuildsPage  extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ export default class BuildsPage  extends React.Component {
   }
 
   handleChange = (value) => {
-    console.log(value);
     this.setState({
       index: value,
     });
@@ -37,12 +37,12 @@ export default class BuildsPage  extends React.Component {
             <Tabs index={index} onChange={this.handleChange}>
               <Tab label="Pretty"  value={0} />
               <Tab label="Table" value={1} />
-              <Tab label="WIP"  value={2} />
+              <Tab label="Graphs"  value={2} />
             </Tabs>
             <SwipeableViews index={index} onChangeIndex={this.handleChange}>
               <PrettyTextStats builds={builds} repository={repository} />
               <TableStats builds={builds} />
-              <p>WIP</p>
+              <GraphStats builds={builds} />
             </SwipeableViews>
           </div>
         );

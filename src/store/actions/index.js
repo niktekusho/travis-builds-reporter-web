@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const RETRIEVE = 'retrieve';
 export const FETCHED = 'fetched';
+export const ERRORED = 'errored';
 
 export const retrieve = (repository) => {
   return (dispatch) => {
@@ -22,8 +23,18 @@ export const fetched = (builds) => {
   };
 };
 
+export const errored = (error) => {
+  return (dispatch) => {
+    dispatch({
+      type: ERRORED,
+      error,
+    });
+  };
+};
+
 export const fetch = repository => (dispatch) => {
   dispatch(retrieve(repository));
   return fetcher.fetch(repository, client.create(axios))
-    .then(builds => dispatch(fetched(builds)));
+    .then(builds => dispatch(fetched(builds)))
+    .catch(error => console.error(error) && dispatch(errored(error)));
 };
