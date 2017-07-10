@@ -18,6 +18,7 @@ export default class BuildsPage  extends React.Component {
   }
 
   handleChange = (value) => {
+    console.log(value);
     this.setState({
       index: value,
     });
@@ -38,7 +39,7 @@ export default class BuildsPage  extends React.Component {
               <Tab label="Table" value={1} />
               <Tab label="WIP"  value={2} />
             </Tabs>
-            <SwipeableViews index={index} onIndexChange={this.handleChange}>
+            <SwipeableViews index={index} onChangeIndex={this.handleChange}>
               <PrettyTextStats builds={builds} repository={repository} />
               <TableStats builds={builds} />
               <p>WIP</p>
