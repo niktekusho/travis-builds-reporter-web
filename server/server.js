@@ -9,14 +9,22 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.post('/builds', (req, res) => {
+  console.log('Request:', JSON.stringify(req, null, 2));
   const body = req.body;
   let { repository } = body;
   if (repository) {
     repository = repository.trim();
     fetcher.fetch(repository, client.create(axios))
-      .then(builds => res.json(builds))
-      .catch(error => res.status(500).send('Wrong repository or something else'));
+      .then((builds) => {
+        console.log('builds fetched');
+        res.json(builds);
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send('Wrong repository or something else');
+      });
   } else {
+    console.warn('Missing repository info');
     res.status(500).send('Missing repository info.');
   }
 });
