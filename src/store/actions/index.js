@@ -23,11 +23,10 @@ export const fetched = (builds) => {
   };
 };
 
-export const errored = (error) => {
+export const errored = () => {
   return (dispatch) => {
     dispatch({
       type: ERRORED,
-      error,
     });
   };
 };
@@ -36,5 +35,5 @@ export const fetch = repository => (dispatch) => {
   dispatch(retrieve(repository));
   return fetcher.fetch(repository, client.create(axios))
     .then(builds => dispatch(fetched(builds)))
-    .catch(error => console.error(error) && dispatch(errored(error)));
+    .catch(error => dispatch(errored()));
 };

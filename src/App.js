@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const {builds, isFetching} = this.props;
+    const {builds, isFetching, error} = this.props;
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -79,18 +79,19 @@ class App extends Component {
             </div>
           </div>
           <RaisedButton primary={true} onClick={() => this.submit()} label="Fetch"/>
-          <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds}/>
+          <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds} error={error}/>
         </div>
       </MuiThemeProvider>
     );
   }
 }
 const mapStateToProps = state => {
-  const {repository, builds, isFetching} = state;
+  const {repository, builds, isFetching, error} = state;
   return {
     repository,
     builds,
     isFetching,
+    error,
   };
 };
 
