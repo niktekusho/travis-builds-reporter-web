@@ -11,7 +11,7 @@
     "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
     "postinstall": "(cd server && npm i && cd ..) && (cd client && npm i && cd ..)",
     "build": "concurrently \"npm run build-client\" \"npm run build-server\"",
-    "start:prod": "cd server && npm start:prod"
+    "start:prod": "cd server && npm run start:prod"
   },
   "repository": {
     "type": "git",
