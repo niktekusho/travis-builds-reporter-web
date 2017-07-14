@@ -30,16 +30,8 @@ export const errored = () => {
 
 export const fetcher = repository => (dispatch) => {
   dispatch(retrieve(repository));
-  let url = 'http://localhost';
-  // This is possible because on a Heroku dyno the NODE environment variable is set to /app/.heroku/node/bin/node.
-  if (process.env.NODE && process.env.NODE.includes('heroku')) {
-    url = 'https://travis-builds-reporter.herokuapp.com';
-  }
-  const port = process.env.PORT || 3001;
-
-  console.log(`${url}:${port}/builds`);
-
-  return fetch(`${url}:${port}/builds`,
+  
+  return fetch('/builds',
     {
       method: "POST",
       headers: {

@@ -2,7 +2,7 @@
   "name": "travis-builds-reporter-web-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.16.2",
     "material-ui": "^0.18.6",

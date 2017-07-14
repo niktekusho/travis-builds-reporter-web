@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.post('/builds', (req, res) => {
-  console.log('Request:', JSON.stringify(req, null, 2));
+  console.log('Request:', req.body, req.params);
   const body = req.body;
   let { repository } = body;
   if (repository) {
@@ -29,9 +29,10 @@ app.post('/builds', (req, res) => {
   }
 });
 
-const staticFiles = express.static(path.join(__dirname, '../../client/build'));
-app.use(staticFiles);
-app.use('/*', staticFiles);
+// Express only serves static assets in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '../../client/build')));
+}
 
 app.set('port', (process.env.PORT || 3001));
 
