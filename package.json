@@ -1,27 +1,29 @@
 {
-  "name": "travis-builds-reporter-web",
+  "name": "travis-builds-reporter-web-server",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "axios": "^0.16.2",
-    "material-ui": "^0.18.6",
-    "open-issue": "^0.2.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
-    "react-scripts": "1.0.10",
-    "react-swipeable-views": "^0.12.3",
-    "react-tap-event-plugin": "^2.0.1",
-    "recharts": "^0.22.2",
-    "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0",
-    "travis-builds-reporter-core": "latest"
-  },
+  "description": "",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build-client": "cd client && npm run build",
+    "build-server": "cd server && npm run build",
+    "start-client": "cd client && npm start",
+    "start-server": "cd server && npm start",
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
+    "postinstall": "(cd server && npm i && cd ..) && (cd client && npm i && cd ..)",
+    "build": "concurrently \"npm run build-client\" \"npm run build-server\"",
+    "start:prod": "cd server && npm start:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niktekusho/travis-builds-reporter-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niktekusho/travis-builds-reporter-web/issues"
+  },
+  "homepage": "https://github.com/niktekusho/travis-builds-reporter-web#readme",
+  "dependencies": {
+    "concurrently": "^3.5.0"
   }
 }

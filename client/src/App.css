@@ -1,0 +1,90 @@
+.App {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.pretty-div {
+  font-size: larger;
+}
+
+.pretty-span {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.pretty-repo {
+    font-weight: bold;
+}
+
+.builds-ok {
+    color: darkgreen;
+}
+
+.builds-cancel {
+    color: dimgrey;
+}
+
+.builds-error {
+    color: crimson;
+}
+
+.title {
+    background-color: rgb(0, 188, 212);
+    color: white;
+    font-weight: normal;
+    margin: 0;
+}
+
+.intro {
+    margin: 0;
+    padding: 1em;
+    background-color: #E0F2F1;
+}
+
+.importantText {
+    font-weight: bold;
+}
+
+.error {
+    background-color: #FFEBEE;
+}
+
+.github-btn, .github-btn:link, .github-btn:visited {
+    background-color: #D84315;
+    color: white;
+    border: 0;
+    margin: 1em;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.github-btn:hover, .github-btn:focus, .github-btn:active {
+    background-color: #BF360C;
+}
+
+.buildsPage {
+    margin: 1em 0em;
+}
