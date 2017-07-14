@@ -9,6 +9,8 @@ import PrettyTextStats from './PrettyTextStats';
 import TableStats from './TableStats';
 import GraphStats from './GraphStats';
 
+import Error from './Error';
+
 export default class BuildsPage  extends React.Component {
   constructor(props) {
     super(props);
@@ -27,12 +29,16 @@ export default class BuildsPage  extends React.Component {
   render() {
     const { index } = this.state;
 
-    const { isFetching, builds, repository } = this.props;
+    const { isFetching, builds, repository, error } = this.props;
+    console.log(error, isFetching);
+    let innerComponent = (null);
     if (isFetching) {
-      return <div><CircularProgress size={100} thickness={6} /></div>;
+      innerComponent = <CircularProgress size={100} thickness={6} />;
+    } else if (error) {
+      innerComponent = <Error repository={repository}/>;
     } else {
       if (builds != null && builds.length > 0) {
-        return (
+        innerComponent = (
           <div>
             <Tabs index={index} onChange={this.handleChange}>
               <Tab label="Pretty"  value={0} />
@@ -48,7 +54,11 @@ export default class BuildsPage  extends React.Component {
         );
       }
     }
-    return (null);
+    return (
+      <div className="buildsPage">
+        {innerComponent}
+      </div>
+    );
   }
 
 };
@@ -57,8 +67,10 @@ BuildsPage.propTypes = {
   isFetching: PropTypes.bool,
   builds: PropTypes.array.isRequired,
   repository: PropTypes.string.isRequired,
+  error: PropTypes.bool,
 };
 
 BuildsPage.defaultProps = {
   isFetching: null,
+  error: null,
 };

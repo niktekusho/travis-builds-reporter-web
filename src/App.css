@@ -65,3 +65,26 @@
 .importantText {
     font-weight: bold;
 }
+
+.error {
+    background-color: #FFEBEE;
+}
+
+.github-btn, .github-btn:link, .github-btn:visited {
+    background-color: #D84315;
+    color: white;
+    border: 0;
+    margin: 1em;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.github-btn:hover, .github-btn:focus, .github-btn:active {
+    background-color: #BF360C;
+}
+
+.buildsPage {
+    margin: 1em 0em;
+}
