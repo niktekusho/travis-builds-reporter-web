@@ -11,6 +11,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import BuildsPage from './components/BuildsPage';
+import Intro from './components/Intro';
 import {fetch} from './store/actions';
 
 // Material-UI Theme
@@ -60,10 +61,10 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
-          <h1>
-            This tool returns basic builds statistics for a Travis enabled <span
-            className="importantText">PUBLIC-ONLY</span> repository.
+          <h1 className="title">
+            Travis Builds Reporter
           </h1>
+          <Intro />
           <div>
             <div>
               <TextField
