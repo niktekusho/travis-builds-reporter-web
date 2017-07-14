@@ -37,6 +37,8 @@ export const fetcher = repository => (dispatch) => {
   }
   const port = process.env.PORT || 3001;
 
+  console.log(`${url}:${port}/builds`);
+
   return fetch(`${url}:${port}/builds`,
     {
       method: "POST",

@@ -1,0 +1,2 @@
+To link to existing heroku application:
+heroku git:remote -a project
