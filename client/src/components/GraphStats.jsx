@@ -8,7 +8,7 @@ const GraphStats = (props) => {
   const { builds } = props;
   if (builds && builds.length > 0) {
     return (
-      <div>
+      <div className="charts-container">
         <BuildsPieChart builds={builds} />
         <BuildsHistoryChart builds={builds} />
       </div>

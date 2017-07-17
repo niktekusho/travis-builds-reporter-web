@@ -90,3 +90,7 @@
 .buildsPage {
     margin: 1em;
 }
+
+.charts-container {
+    overflow: hidden;
+}
