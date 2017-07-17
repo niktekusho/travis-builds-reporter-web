@@ -26,6 +26,7 @@ class App extends Component {
     this.state = {
       isAboutOpen: false,
       isMenuOpen: false,
+      isResultOpen: false,
       repositoryAuthor: '',
       repository: '',
       errorTextRepository: '',
@@ -72,10 +73,19 @@ class App extends Component {
       });
     }
     if (submit) {
+      this.setState({
+        isResultOpen: true,
+      });
       const repo = this.getRepository();
       const {dispatch} = this.props;
       dispatch(fetcher(repo));
     }
+  }
+
+  backToHome() {
+    this.setState({
+      isResultOpen: false,
+    });
   }
 
   clear() {
@@ -95,6 +105,7 @@ class App extends Component {
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
       isAboutOpen: true,
+      isResultOpen: false,
       repository: '',
       repositoryAuthor: '',
     });
@@ -120,12 +131,23 @@ class App extends Component {
           repositoryError={this.state.errorTextRepository}
           repositoryAuthorError={this.state.errorTextRepositoryAuthor}
         />
-        <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds} error={error}/>
       </div>
     );
 
     if (this.state.isAboutOpen) {
       content = <About />;
+    }
+
+    if (this.state.isResultOpen) {
+      content = (
+        <BuildsPage
+          repository={this.getRepository()}
+          isFetching={isFetching}
+          builds={builds}
+          error={error}
+          handleBack={() => this.backToHome()}
+        />
+      )
     }
 
     return (

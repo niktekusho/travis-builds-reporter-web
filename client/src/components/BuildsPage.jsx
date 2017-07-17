@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Tabs, { Tab } from 'material-ui/Tabs';
 import CircularProgress from 'material-ui/CircularProgress';
+import RaisedButton from 'material-ui/RaisedButton';
 import SwipeableViews from 'react-swipeable-views';
 
 import PrettyTextStats from './PrettyTextStats';
@@ -30,17 +31,27 @@ export default class BuildsPage  extends React.Component {
   render() {
     const { index } = this.state;
 
-    const { isFetching, builds, repository, error } = this.props;
-    console.log(error, isFetching);
+    const { isFetching, builds, repository, error, handleBack } = this.props;
+    // console.log(error, isFetching);
     let innerComponent = (null);
     if (isFetching) {
       innerComponent = <CircularProgress size={100} thickness={6} />;
     } else if (error) {
-      innerComponent = <Error repository={repository}/>;
+      innerComponent = (
+        <div>
+          <p>
+            <RaisedButton primary={true} onClick={() => handleBack()} label="Back"/>
+          </p>
+          <Error repository={repository}/>
+        </div>
+      );
     } else {
       if (builds != null && builds.length > 0) {
         innerComponent = (
           <div>
+            <p>
+              <RaisedButton primary={true} onClick={() => handleBack()} label="Back"/>
+            </p>
             <Tabs index={index} onChange={this.handleChange}>
               <Tab label="Pretty"  value={0} />
               <Tab label="Table" value={1} />
@@ -61,7 +72,6 @@ export default class BuildsPage  extends React.Component {
       </div>
     );
   }
-
 };
 
 BuildsPage.propTypes = {
@@ -69,6 +79,7 @@ BuildsPage.propTypes = {
   builds: PropTypes.array.isRequired,
   repository: PropTypes.string.isRequired,
   error: PropTypes.bool,
+  handleBack: PropTypes.func.isRequired,
 };
 
 BuildsPage.defaultProps = {
