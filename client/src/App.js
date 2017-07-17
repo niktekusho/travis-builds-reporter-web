@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {teal100} from 'material-ui/styles/colors';
-import {connect} from 'react-redux';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import { connect } from 'react-redux';
 
-import logo from './logo.svg';
 import './App.css';
 
 import BuildsPage from './components/BuildsPage';
 import Intro from './components/Intro';
-import {fetcher} from './store/actions';
+import RepositoryForm from './components/RepositoryForm';
+import About from './components/AboutPage';
+import { fetcher } from './store/actions';
 
 // Material-UI Theme
 const muiTheme = getMuiTheme();
@@ -21,6 +22,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isAboutOpen: false,
+      isMenuOpen: false,
       repositoryAuthor: '',
       repository: '',
     };
@@ -55,31 +58,61 @@ class App extends Component {
     });
   }
 
+  toggleMenu() {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+    });
+  }
+
+  openAbout() {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+      isAboutOpen: true,
+    });
+  }
+
+  closeAbout() {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+      isAboutOpen: false,
+    });
+  }
+
   render() {
     const {builds, isFetching, error} = this.props;
+
+    let content = (
+      <div>
+        <Intro />
+        <RepositoryForm
+          repositoryAuthorChanged={event => this.repositoryAuthorChanged(event)}
+          repositoryChanged={event => this.repositoryChanged(event)}
+          submit={() => this.submit()}
+        />
+        <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds} error={error}/>
+      </div>
+    );
+
+    if (this.state.isAboutOpen) {
+      content = <About />;
+    }
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
-          <h1 className="title">
-            Travis Builds Reporter
-          </h1>
-          <Intro />
-          <div>
-            <div>
-              <TextField
-                floatingLabelText="Repository user's name"
-                onChange={event => this.repositoryAuthorChanged(event)}
-              />
-              /
-              <TextField
-                floatingLabelText="Repository name"
-                onChange={event => this.repositoryChanged(event)}
-              />
-            </div>
-          </div>
-          <RaisedButton primary={true} onClick={() => this.submit()} label="Fetch"/>
-          <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds} error={error}/>
+          <AppBar
+            title="Travis Builds Reporter"
+            onLeftIconButtonTouchTap={() => this.toggleMenu()}
+          />
+          <Drawer
+            open={this.state.isMenuOpen}
+            docked={false}
+            onRequestChange={isMenuOpen => this.setState({ isMenuOpen })}
+          >
+            <MenuItem onTouchTap={() => this.closeAbout()} disabled={!this.state.isAboutOpen}>Home</MenuItem>
+            <MenuItem onTouchTap={() => this.openAbout()} disabled={this.state.isAboutOpen}>About</MenuItem>
+          </Drawer>
+          { content }
         </div>
       </MuiThemeProvider>
     );
