@@ -19,6 +19,8 @@ import { fetcher } from './store/actions';
 const muiTheme = getMuiTheme();
 
 class App extends Component {
+  static ERRORTEXT = 'This field is required';
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +28,8 @@ class App extends Component {
       isMenuOpen: false,
       repositoryAuthor: '',
       repository: '',
+      errorTextRepository: '',
+      errorTextRepositoryAuthor: '',
     };
   }
 
@@ -46,9 +50,32 @@ class App extends Component {
   }
 
   submit() {
-    const repo = this.getRepository();
-    const {dispatch} = this.props;
-    dispatch(fetcher(repo));
+    let submit = true;
+    if (this.state.repositoryAuthor === '') {
+      submit = false;
+      this.setState({
+        errorTextRepositoryAuthor: App.ERRORTEXT,
+      });
+    } else {
+      this.setState({
+        errorTextRepositoryAuthor: '',
+      });
+    }
+    if (this.state.repository === '') {
+      submit = false;
+      this.setState({
+        errorTextRepository: App.ERRORTEXT,
+      });
+    } else {
+      this.setState({
+        errorTextRepository: '',
+      });
+    }
+    if (submit) {
+      const repo = this.getRepository();
+      const {dispatch} = this.props;
+      dispatch(fetcher(repo));
+    }
   }
 
   clear() {
@@ -68,6 +95,8 @@ class App extends Component {
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
       isAboutOpen: true,
+      repository: '',
+      repositoryAuthor: '',
     });
   }
 
@@ -88,6 +117,8 @@ class App extends Component {
           repositoryAuthorChanged={event => this.repositoryAuthorChanged(event)}
           repositoryChanged={event => this.repositoryChanged(event)}
           submit={() => this.submit()}
+          repositoryError={this.state.errorTextRepository}
+          repositoryAuthorError={this.state.errorTextRepositoryAuthor}
         />
         <BuildsPage repository={this.getRepository()} isFetching={isFetching} builds={builds} error={error}/>
       </div>
