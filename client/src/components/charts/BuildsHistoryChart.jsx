@@ -13,14 +13,14 @@ const BuildsHistoryChart = (props) => {
   }));
 
   return (
-    <ResponsiveContainer height={400} width="80%">
+    <ResponsiveContainer height={400} width="100%">
       <LineChart data={data}
-                 margin={{ top: 50, bottom: 50 }}>
+                 margin={{ left: 0, right: 20, top: 50, bottom: 50 }}>
         <XAxis dataKey="name" label="Date" />
         <YAxis dataKey="value" label="Builds count" />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Line type="monotone" label="# Builds" name="builds" dataKey="value" stroke="#8884d8" />
+        <Line type="monotone" name="builds" dataKey="value" stroke="#8884d8" />
       </LineChart>
     </ResponsiveContainer>
   );

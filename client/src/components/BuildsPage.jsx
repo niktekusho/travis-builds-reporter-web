@@ -21,6 +21,7 @@ export default class BuildsPage  extends React.Component {
   }
 
   handleChange = (value) => {
+    console.log(value);
     this.setState({
       index: value,
     });

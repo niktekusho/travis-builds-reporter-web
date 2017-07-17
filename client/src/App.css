@@ -25,7 +25,9 @@
 }
 
 .pretty-div {
-  font-size: larger;
+    font-size: larger;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .pretty-span {

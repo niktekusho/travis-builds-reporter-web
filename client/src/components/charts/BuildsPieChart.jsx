@@ -22,20 +22,20 @@ const BuildsPieChart = (props) => {
   ];
 
   return (
-    <ResponsiveContainer height={400} width="80%">
-      <PieChart margin={{ top: 50, bottom: 50 }}>
+    <ResponsiveContainer width="100%" height={400}>
+      <PieChart margin={{ left: "auto", right: "auto", top: 50, bottom: 50 }}>
         <Tooltip label="test"/>
         <Pie
           data={pieChartData}
           dataKey="name"
           valueKey="value"
-          outerRadius={200}
+          outerRadius={120}
           labelLine={false}
           label
           tooltip
         >
           {
-            pieChartData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            pieChartData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
       </PieChart>
