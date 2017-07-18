@@ -4,6 +4,7 @@
   "private": true,
   "description": "",
   "scripts": {
+    "heroku-postbuild": "cd client && rm -rf build && npm run build",
     "build-client": "cd client && npm run build",
     "build-server": "cd server && npm run build",
     "start-client": "cd client && npm start",
