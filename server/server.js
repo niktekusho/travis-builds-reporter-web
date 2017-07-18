@@ -49,7 +49,9 @@ app.get('/versions', (req, res) => {
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, '../../client/build')));
+  app.use(express.static(path.join(__dirname, '../../client/build')), {
+    etag: false,
+  });
 }
 
 app.set('port', (process.env.PORT || 3001));
