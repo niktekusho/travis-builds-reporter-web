@@ -55,7 +55,7 @@ const About = () => (
           </TableRow>
           <TableRow>
             <TableRowColumn>travis-builds-reporter-web:frontend</TableRowColumn>
-            <TableRowColumn>0.1.1</TableRowColumn>
+            <TableRowColumn>0.1.2</TableRowColumn>
             <TableRowColumn><a href="https://github.com/niktekusho/travis-builds-reporter-web/tree/master/client">GitHub</a></TableRowColumn>
           </TableRow>
           <TableRow>
