@@ -94,3 +94,9 @@
 .charts-container {
     overflow: hidden;
 }
+
+.lot-of-text-container {
+    padding: 1em;
+    margin: auto;
+    line-break: strict;
+}
