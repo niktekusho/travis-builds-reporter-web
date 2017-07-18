@@ -22,7 +22,6 @@ export default class BuildsPage  extends React.Component {
   }
 
   handleChange = (value) => {
-    console.log(value);
     this.setState({
       index: value,
     });
@@ -52,7 +51,8 @@ export default class BuildsPage  extends React.Component {
             <p>
               <RaisedButton primary={true} onClick={() => handleBack()} label="Back"/>
             </p>
-            <Tabs index={index} onChange={this.handleChange}>
+            <div>
+            <Tabs value={index} onChange={this.handleChange}>
               <Tab label="Pretty"  value={0} />
               <Tab label="Table" value={1} />
               <Tab label="Graphs"  value={2} />
@@ -62,6 +62,7 @@ export default class BuildsPage  extends React.Component {
               <TableStats builds={builds} />
               <GraphStats builds={builds} />
             </SwipeableViews>
+            </div>
           </div>
         );
       }
