@@ -25,7 +25,7 @@ const Error = ({ repository }) => {
 
     return (
       <div className="error">
-        <img src={require("./error.jpg")} alt="Error image" width={200}/>
+        <img src={require("./assets/error.jpg")} alt="Error image" width={200}/>
         <p>
           We failed to retrieve builds from Travis. Please check the spelling of the repository.
           If that does not help, open a new <a className="github-btn" href={issueUrl}>issue on github</a>
