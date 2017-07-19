@@ -10,8 +10,10 @@ import {
 import { List, ListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 
-import { GoMarkGithub } from 'react-icons/lib/go';
+import { GoMarkGithub, GoRepo } from 'react-icons/lib/go';
 import { FaLinkedinSquare } from 'react-icons/lib/fa';
+
+import NpmIcon from './NpmIcon';
 
 class About extends React.Component {
   constructor(props) {
@@ -47,21 +49,31 @@ class About extends React.Component {
     });
   }
 
+  richLink = (url, tooltip, style, iconStyle, child) => {
+    return (
+      <a href={url}>
+        <IconButton tooltip={tooltip} touch={true} tooltipPosition="top-center" style={style} iconStyle={iconStyle}>
+          {child}
+        </IconButton>
+      </a>
+    );
+  };
+
   render() {
     const { project } = this.state;
 
     const styles = {
       smallIcon: {
-        width: 36,
-        height: 36,
+        width: 24,
+        height: 24,
       },
       largeIcon: {
         width: 60,
         height: 60,
       },
       small: {
-        width: 72,
-        height: 72,
+        width: 64,
+        height: 64,
         padding: 16,
       },
       large: {
@@ -81,18 +93,10 @@ class About extends React.Component {
             Below you can find some useful links about me and/or about this project:
             <List>
               <ListItem>
-                <a href="https://github.com/niktekusho">
-                  <IconButton tooltip="my GitHub account" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
-                    <GoMarkGithub />
-                  </IconButton>
-                </a>
+                {this.richLink('https://github.com/niktekusho', 'my GitHub account', styles.large, styles.largeIcon, <GoMarkGithub />)}
               </ListItem>
               <ListItem>
-                <a href="https://www.linkedin.com/in/nicoladalmaso">
-                  <IconButton tooltip="my Linkedin account" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
-                    <FaLinkedinSquare />
-                  </IconButton>
-                </a>
+                {this.richLink('https://www.linkedin.com/in/nicoladalmaso', 'my Linkedin account', styles.large, styles.largeIcon, <FaLinkedinSquare />)}
               </ListItem>
             </List>
           </div>
@@ -110,11 +114,7 @@ class About extends React.Component {
             framework</a>.
             You can find this project's source code following the link below:
             <div>
-              <a href="https://github.com/niktekusho/travis-builds-reporter-web">
-                <IconButton tooltip="this project repository" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
-                  <GoMarkGithub />
-                </IconButton>
-              </a>
+              {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web', 'this project repository', styles.large, styles.largeIcon, <GoMarkGithub />)}
             </div>
           </p>
         </div>
@@ -130,31 +130,39 @@ class About extends React.Component {
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web</TableRowColumn>
                 <TableRowColumn>{project.rootVersion}</TableRowColumn>
-                <TableRowColumn><a href="https://github.com/niktekusho/travis-builds-reporter-web">GitHub</a></TableRowColumn>
+                <TableRowColumn>
+                  {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web', 'GitHub', styles.small, styles.smallIcon, <GoRepo />)}
+                </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web:frontend</TableRowColumn>
                 <TableRowColumn>{project.frontendVersion}</TableRowColumn>
-                <TableRowColumn><a
-                  href="https://github.com/niktekusho/travis-builds-reporter-web/tree/master/client">GitHub</a></TableRowColumn>
+                <TableRowColumn>
+                  {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web/tree/master/client', 'GitHub', styles.small, styles.smallIcon, <GoRepo />)}
+                </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web:backend</TableRowColumn>
                 <TableRowColumn>{project.backendVersion}</TableRowColumn>
-                <TableRowColumn><a
-                  href="https://github.com/niktekusho/travis-builds-reporter-web/tree/master/server">GitHub</a></TableRowColumn>
+                <TableRowColumn>
+                  {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web/tree/master/server', '', styles.small, styles.smallIcon, <GoRepo />)}
+                </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-core</TableRowColumn>
                 <TableRowColumn>{project.coreVersion}</TableRowColumn>
-                <TableRowColumn><a href="https://www.npmjs.com/package/travis-builds-reporter-core">npm
-                  registry</a></TableRowColumn>
+                <TableRowColumn>
+                  {this.richLink('https://github.com/niktekusho/travis-builds-reporter/tree/master/packages/travis-builds-reporter-core', '', styles.small, styles.smallIcon, <GoRepo />)}
+                  {this.richLink('https://www.npmjs.com/package/travis-builds-reporter-core', '', styles.small, styles.smallIcon, <NpmIcon />)}
+                </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-utils</TableRowColumn>
                 <TableRowColumn>{project.utilsVersion}</TableRowColumn>
-                <TableRowColumn><a href="https://www.npmjs.com/package/travis-builds-reporter-utils">npm
-                  registry</a></TableRowColumn>
+                <TableRowColumn>
+                  {this.richLink('https://github.com/niktekusho/travis-builds-reporter/tree/master/packages/travis-builds-reporter-utils', '', styles.small, styles.smallIcon, <GoRepo />)}
+                  {this.richLink('https://www.npmjs.com/package/travis-builds-reporter-utils', '', styles.small, styles.smallIcon, <NpmIcon />)}
+                </TableRowColumn>
               </TableRow>
             </TableBody>
           </Table>
