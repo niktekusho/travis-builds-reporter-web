@@ -8,6 +8,10 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import { List, ListItem } from 'material-ui/List';
+import IconButton from 'material-ui/IconButton';
+
+import { GoMarkGithub } from 'react-icons/lib/go';
+import { FaLinkedinSquare } from 'react-icons/lib/fa';
 
 class About extends React.Component {
   constructor(props) {
@@ -46,6 +50,26 @@ class About extends React.Component {
   render() {
     const { project } = this.state;
 
+    const styles = {
+      smallIcon: {
+        width: 36,
+        height: 36,
+      },
+      largeIcon: {
+        width: 60,
+        height: 60,
+      },
+      small: {
+        width: 72,
+        height: 72,
+        padding: 16,
+      },
+      large: {
+        width: 120,
+        height: 120,
+      },
+    };
+
     return (
       <div>
         <h2>About</h2>
@@ -57,14 +81,18 @@ class About extends React.Component {
             Below you can find some useful links about me and/or about this project:
             <List>
               <ListItem>
-                <a href="https://github.com/niktekusho">my GitHub account</a>
+                <a href="https://github.com/niktekusho">
+                  <IconButton tooltip="my GitHub account" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
+                    <GoMarkGithub />
+                  </IconButton>
+                </a>
               </ListItem>
               <ListItem>
-                <a href="">my LinkedIn page</a>
-              </ListItem>
-              <ListItem>
-                <a href="https://github.com/niktekusho/travis-builds-reporter-web">this project
-                  repository</a>
+                <a href="https://www.linkedin.com/in/nicoladalmaso">
+                  <IconButton tooltip="my Linkedin account" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
+                    <FaLinkedinSquare />
+                  </IconButton>
+                </a>
               </ListItem>
             </List>
           </div>
@@ -80,6 +108,14 @@ class About extends React.Component {
             we measured the quality of our iteration cycles (Incremental Process model lifecycle)
             during the development of the <a href="https://github.com/or-bit/monolith">monolith
             framework</a>.
+            You can find this project's source code following the link below:
+            <div>
+              <a href="https://github.com/niktekusho/travis-builds-reporter-web">
+                <IconButton tooltip="this project repository" touch={true} tooltipPosition="top-center" style={styles.large} iconStyle={styles.largeIcon}>
+                  <GoMarkGithub />
+                </IconButton>
+              </a>
+            </div>
           </p>
         </div>
         <div>
