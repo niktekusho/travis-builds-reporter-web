@@ -82,6 +82,10 @@ class About extends React.Component {
       },
     };
 
+    function formatVersion(version) {
+        return version.replace(/[^\d.]/, '');
+    }
+
     return (
       <div>
         <h2>About</h2>
@@ -129,28 +133,28 @@ class About extends React.Component {
             <TableBody displayRowCheckbox={false}>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web</TableRowColumn>
-                <TableRowColumn>{project.rootVersion}</TableRowColumn>
+                <TableRowColumn>{formatVersion(project.rootVersion)}</TableRowColumn>
                 <TableRowColumn>
                   {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web', 'GitHub', styles.small, styles.smallIcon, <GoRepo />)}
                 </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web:frontend</TableRowColumn>
-                <TableRowColumn>{project.frontendVersion}</TableRowColumn>
+                <TableRowColumn>{formatVersion(project.frontendVersion)}</TableRowColumn>
                 <TableRowColumn>
                   {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web/tree/master/client', 'GitHub', styles.small, styles.smallIcon, <GoRepo />)}
                 </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-web:backend</TableRowColumn>
-                <TableRowColumn>{project.backendVersion}</TableRowColumn>
+                <TableRowColumn>{formatVersion(project.backendVersion)}</TableRowColumn>
                 <TableRowColumn>
                   {this.richLink('https://github.com/niktekusho/travis-builds-reporter-web/tree/master/server', '', styles.small, styles.smallIcon, <GoRepo />)}
                 </TableRowColumn>
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-core</TableRowColumn>
-                <TableRowColumn>{project.coreVersion}</TableRowColumn>
+                <TableRowColumn>{formatVersion(project.coreVersion)}</TableRowColumn>
                 <TableRowColumn>
                   {this.richLink('https://github.com/niktekusho/travis-builds-reporter/tree/master/packages/travis-builds-reporter-core', '', styles.small, styles.smallIcon, <GoRepo />)}
                   {this.richLink('https://www.npmjs.com/package/travis-builds-reporter-core', '', styles.small, styles.smallIcon, <NpmIcon />)}
@@ -158,7 +162,7 @@ class About extends React.Component {
               </TableRow>
               <TableRow>
                 <TableRowColumn>travis-builds-reporter-utils</TableRowColumn>
-                <TableRowColumn>{project.utilsVersion}</TableRowColumn>
+                <TableRowColumn>{formatVersion(project.utilsVersion)}</TableRowColumn>
                 <TableRowColumn>
                   {this.richLink('https://github.com/niktekusho/travis-builds-reporter/tree/master/packages/travis-builds-reporter-utils', '', styles.small, styles.smallIcon, <GoRepo />)}
                   {this.richLink('https://www.npmjs.com/package/travis-builds-reporter-utils', '', styles.small, styles.smallIcon, <NpmIcon />)}

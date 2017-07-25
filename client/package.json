@@ -18,7 +18,7 @@
     "recharts": "^0.22.2",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "travis-builds-reporter-utils": "0.0.1"
+    "travis-builds-reporter-utils": "^0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
