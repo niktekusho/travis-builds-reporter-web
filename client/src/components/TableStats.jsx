@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buildsUtils } from 'travis-builds-reporter-core';
+import buildsUtils from 'travis-builds-reporter-utils';
 
 import {
   Table,
