@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { buildsUtils } from 'travis-builds-reporter-core';
+import utils from 'travis-builds-reporter-utils';
 
 const BuildsHistoryChart = (props) => {
 
-  const slicedBuilds = buildsUtils.sliceBuildsByDate(props.builds);
+  const slicedBuilds = utils.sliceBuildsByDate(props.builds);
 
   const data = slicedBuilds.map(entry => ({
     name: (entry[0].started_at || entry[0].finished_at).substring(0, 10), value: entry.length,

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "",
+  "repository": "git+https://github.com/niktekusho/travis-builds-reporter-web.git",
   "scripts": {
     "heroku-postbuild": "cd client && rm -rf build && npm run build",
     "build-client": "cd client && npm run build",
@@ -14,17 +15,14 @@
     "build": "concurrently \"npm run build-client\" \"npm run build-server\"",
     "start:prod": "cd server && npm run start:prod"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/niktekusho/travis-builds-reporter-web.git"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "Nicola Dal Maso",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/niktekusho/travis-builds-reporter-web/issues"
   },
   "homepage": "https://github.com/niktekusho/travis-builds-reporter-web#readme",
   "dependencies": {
     "concurrently": "^3.5.0"
-  }
+  },
+  "main": "index.js"
 }

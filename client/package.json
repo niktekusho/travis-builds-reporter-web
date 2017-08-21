@@ -18,12 +18,16 @@
     "recharts": "^0.22.2",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "travis-builds-reporter-core": "latest"
+    "travis-builds-reporter-utils": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Frontend for travis-builds-reporter-web",
+  "repository": "https://github.com/niktekusho/travis-builds-reporter-web/tree/master/client",
+  "author": "Nicola Dal Maso",
+  "license": "GPL-3.0"
 }

@@ -1,15 +1,16 @@
 {
-  "name": "server",
+  "name": "travis-builds-reporter-web-server",
   "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Backend for travis-builds-reporter-web",
+  "repository": "https://github.com/niktekusho/travis-builds-reporter-web/tree/master/server",
   "scripts": {
     "build": "babel . --ignore node_modules,build --out-dir build",
     "start": "nodemon -r babel-register server.js",
     "start:prod": "node build/server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Nicola Dal Maso",
+  "license": "GPL-3.0",
   "devDependencies": {
     "babel-register": "^6.24.1",
     "nodemon": "^1.11.0"
@@ -23,6 +24,6 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.15.3",
-    "travis-builds-reporter-core": "0.0.4"
+    "travis-builds-reporter-core": "^0.1.0"
   }
 }

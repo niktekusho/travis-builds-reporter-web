@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buildsUtils } from 'travis-builds-reporter-core';
+import utils from 'travis-builds-reporter-utils';
 
 const PrettyTextStats = (props) => {
   if (props.builds != null && props.builds.length > 0) {
     const builds = props.builds;
-    const buildsCount = buildsUtils.getBuildsCount(builds);
-    const successCount = buildsUtils.getSuccessfulBuildsCount(builds);
-    const canceledCount = buildsUtils.getCanceledBuildsCount(builds);
-    const failedCount = buildsUtils.getFailedBuildsCount(builds);
-    const erroredCount = buildsUtils.getErroredBuildsCount(builds);
-    const successRate = (buildsUtils.getSuccessfulBuildsRate(builds) * 100).toFixed(2);
-    const avgDuration = buildsUtils.getAverageBuildsDuration(builds, 2);
-    const minDuration = buildsUtils.getMinimumBuildsDuration(builds);
-    const maxDuration = buildsUtils.getMaximumBuildsDuration(builds);
+    const buildsCount = utils.getBuildsCount(builds);
+    const successCount = utils.getSuccessfulBuildsCount(builds);
+    const canceledCount = utils.getCanceledBuildsCount(builds);
+    const failedCount = utils.getFailedBuildsCount(builds);
+    const erroredCount = utils.getErroredBuildsCount(builds);
+    const successRate = (utils.getSuccessfulBuildsRate(builds) * 100).toFixed(2);
+    const avgDuration = utils.getAverageBuildsDuration(builds, 2);
+    const minDuration = utils.getMinimumBuildsDuration(builds);
+    const maxDuration = utils.getMaximumBuildsDuration(builds);
 
     return (
       <div className="pretty-div">
