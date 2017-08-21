@@ -81,6 +81,7 @@ function main(rootProjectDir) {
   // Express only serves static assets in production
   if (process.env.NODE_ENV === "production") {
     app.use(_express2.default.static(_path2.default.join(rootProjectDir, 'client/build')));
+    console.log('Serving static bundle to /');
   }
 
   app.set('port', process.env.PORT || 3001);
