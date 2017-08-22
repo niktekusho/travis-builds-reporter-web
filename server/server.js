@@ -5,6 +5,7 @@ import axios from 'axios';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { exists } from 'fs';
+import Ddos from 'ddos';
 
 function pathFinder(currentDir) {
   exists(`${currentDir}/Procfile`, (exists) => {
@@ -20,6 +21,8 @@ function main(rootProjectDir) {
   const backendPackageJson = require(`${rootProjectDir}/server/package.json`);
   const frontendPackageJson = require(`${rootProjectDir}/client/package.json`);
   const rootPackageJson = require(`${rootProjectDir}/package.json`);
+  
+  const ddos = new Ddos({ burst:10, limit:10 });
 
   function fetchBuilds(requestBody, response) {
     let { repository } = requestBody;
@@ -41,6 +44,7 @@ function main(rootProjectDir) {
   }
 
   const app = express();
+  app.use(ddos.express);
   app.use(bodyParser.json());
   app.use(cors());
   app.post('/builds', (req, res) => {
