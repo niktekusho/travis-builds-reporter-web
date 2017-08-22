@@ -6,7 +6,7 @@ You can find a running instance of this app on [my **personal** heroku](https://
 
 Below you can find a snapshot of what you can expect from this app.
 
-TODO: ADD SIMPLE GIF
+![Application demo: fetch and display builds statistics from niktekusho/travis-builds-reporter repository](./demo/usage.gif)
 
 # What's in here?
 
