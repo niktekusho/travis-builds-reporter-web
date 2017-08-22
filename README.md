@@ -33,9 +33,9 @@ Here we can talk about specific files and list of defined commands for the root 
 Command name     | Usage                                       | Description
 -----------------|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 *heroku-postbuild* | N.N.T.K (No Need To Know, Heroku calls it!) | Used when deploying to Heroku, it clears any cached frontend bundle and rebuilds it. Actually, not sure why I needed it in the first place...
-*build*            | `npm run build`                               | Compile both project for deployment.
-*build-client*     | `npm run build-client`                        | Compile frontend for deployment. Creates a static bundle you can serve with any static server.
-*build-server*     | `npm run build-server`                        | Compile backend for deployment. Uses [babel](https://babeljs.io/).
+*build*            | `npm run build`                               | Compiles both projects for deployment.
+*build-client*     | `npm run build-client`                        | Compiles frontend for deployment. Creates a static bundle you can serve with any static server.
+*build-server*     | `npm run build-server`                        | Compiles backend for deployment. Uses [babel](https://babeljs.io/).
 *clean*            | `npm run clean`                               | Deletes node_modules directories in both projects.
 *clean-client*     | `npm run clean-client`                        | Deletes node_modules directory in [client](./client/) project.
 *clean-server*     | `npm run clean-server`                        | Deletes node_modules directory in [server](./server/) project.
