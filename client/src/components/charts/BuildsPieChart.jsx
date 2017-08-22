@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
+
 import utils from 'travis-builds-reporter-utils';
 
 const COLORS = ['green', 'grey', 'red', 'orange'];
