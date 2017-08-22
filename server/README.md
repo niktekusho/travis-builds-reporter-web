@@ -7,7 +7,8 @@ The only relevant file should be `server.js`:
 2.  it fetches all known `package.json`-s in the project (root project, client project and this project of course)
 3.  it instantiate and configure an [express](https://github.com/expressjs/express) server with the following middlewares:
     -   [cors](https://github.com/expressjs/cors)
-    -   [body-parser](https://github.com/expressjs/body-parser)  
+    -   [body-parser](https://github.com/expressjs/body-parser)
+    -   [ddos](https://github.com/rook2pawn/node-ddos)  
     and the following routes:  
 
 HTTP Method | Route       | Description
