@@ -59,9 +59,10 @@ function main(rootProjectDir) {
     });
   });
 
-// Express only serves static assets in production
+  // Express only serves static assets in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(rootProjectDir, 'client/build')));
+    console.log('Serving static bundle to /');
   }
 
   app.set('port', (process.env.PORT || 3001));

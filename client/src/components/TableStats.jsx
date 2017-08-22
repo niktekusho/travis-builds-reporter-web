@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import buildsUtils from 'travis-builds-reporter-utils';
+import utils from 'travis-builds-reporter-utils';
 
 import {
   Table,
@@ -46,15 +46,15 @@ const TableStats = (props) => {
           <TableHeaderColumn>Unit</TableHeaderColumn>
         </TableHeader>
         <TableBody>
-          <TableRowStat metric="Total builds" value={buildsUtils.getBuildsCount(builds)} unit="# builds"/>
-          <TableRowStat metric="Successful builds" value={buildsUtils.getSuccessfulBuildsCount(builds)} unit="# builds"/>
-          <TableRowStat metric="Canceled builds" value={buildsUtils.getCanceledBuildsCount(builds)} unit="# builds"/>
-          <TableRowStat metric="Errored builds" value={buildsUtils.getErroredBuildsCount(builds)} unit="# builds"/>
-          <TableRowStat metric="Failed builds" value={buildsUtils.getFailedBuildsCount(builds)} unit="# builds"/>
-          <TableRowStat metric="Successful builds rate" value={(buildsUtils.getSuccessfulBuildsRate(builds) * 100).toFixed(2)} unit="%"/>
-          <TableRowStat metric="Average builds duration" value={buildsUtils.getAverageBuildsDuration(builds, 2)} unit="seconds"/>
-          <TableRowStat metric="Minimum builds duration" value={buildsUtils.getMinimumBuildsDuration(builds)} unit="seconds"/>
-          <TableRowStat metric="Maximum builds duration" value={buildsUtils.getMaximumBuildsDuration(builds)} unit="seconds"/>
+          <TableRowStat metric="Total builds" value={utils.getBuildsCount(builds)} unit="# builds"/>
+          <TableRowStat metric="Successful builds" value={utils.getSuccessfulBuildsCount(builds)} unit="# builds"/>
+          <TableRowStat metric="Canceled builds" value={utils.getCanceledBuildsCount(builds)} unit="# builds"/>
+          <TableRowStat metric="Errored builds" value={utils.getErroredBuildsCount(builds)} unit="# builds"/>
+          <TableRowStat metric="Failed builds" value={utils.getFailedBuildsCount(builds)} unit="# builds"/>
+          <TableRowStat metric="Successful builds rate" value={(utils.getSuccessfulBuildsRate(builds) * 100).toFixed(2)} unit="%"/>
+          <TableRowStat metric="Average builds duration" value={utils.getAverageBuildsDuration(builds, 2)} unit="seconds"/>
+          <TableRowStat metric="Minimum builds duration" value={utils.getMinimumBuildsDuration(builds)} unit="seconds"/>
+          <TableRowStat metric="Maximum builds duration" value={utils.getMaximumBuildsDuration(builds)} unit="seconds"/>
         </TableBody>
       </Table>
     );

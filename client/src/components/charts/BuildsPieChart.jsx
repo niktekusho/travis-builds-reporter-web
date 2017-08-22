@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
-import buildsUtils from 'travis-builds-reporter-utils';
+
+import utils from 'travis-builds-reporter-utils';
 
 const COLORS = ['green', 'grey', 'red', 'orange'];
 
 const BuildsPieChart = (props) => {
   const { builds } = props;
 
-  const successfulBuilds = buildsUtils.getSuccessfulBuilds(builds);
-  const canceledBuilds = buildsUtils.getCanceledBuilds(builds);
-  const failedBuilds = buildsUtils.getFailedBuilds(builds);
-  const erroredBuilds = buildsUtils.getErroredBuilds(builds);
+  const successfulBuilds = utils.getSuccessfulBuilds(builds);
+  const canceledBuilds = utils.getCanceledBuilds(builds);
+  const failedBuilds = utils.getFailedBuilds(builds);
+  const erroredBuilds = utils.getErroredBuilds(builds);
 
   const pieChartData = [
     { name: 'Successful builds', value: successfulBuilds.length },
