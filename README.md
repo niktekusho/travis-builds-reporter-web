@@ -1,5 +1,4 @@
 # Introduction
-
 **travis-builds-reporter-web** is a webapp that makes easy to fetch and display basic builds statistics for a Travis enabled ***public*** repository.
 
 You can find a running instance of this app on [my **personal** heroku](https://travis-builds-reporter.herokuapp.com) ( ***please do not DOS it...*** :pray:).
@@ -9,7 +8,6 @@ Below you can find a snapshot of what you can expect from this app.
 ![Application demo: fetch and display builds statistics from niktekusho/travis-builds-reporter repository](./demo/usage.gif)
 
 # What's in here?
-
 There are 2 separate projects inside this one:
 1.  the [client](./client/) project serves as the frontend part of the application. It is a [create-react-app project](https://github.com/facebookincubator/create-react-app).
 2.  the [server](./server/) project serves as the backend part of the application. It is a simple [express](https://github.com/expressjs/express) application.
@@ -45,15 +43,16 @@ Command name     | Usage                                       | Description
 *start-server*     | `npm run start-server`                        | Starts only the backend part in **development mode**.
 
 # What do you need?
-
 You can build this application on your own using node (check [Node.js](https://nodejs.org) for instructions on how to install it):  
     1.  `git clone https://github.com/niktekusho/travis-builds-reporter-web`  
     2.  `cd travis-builds-reporter-web/`  
     3.  `npm i && npm start`
 
 # Related projects
-
 Checkout [travis-builds-reporter](https://github.com/niktekusho/travis-builds-reporter) for the core packages that made this app possible. :v:
+
+# Honorable Mentions :bow:
+Wow... looks like no one helped me with this... :sad:
 
 # What's next?
 To do:
