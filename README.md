@@ -53,7 +53,7 @@ You can build this application on your own using node (check [Node.js](https://n
 
 # Related projects
 
-Checkout [travis-builds-reporter](https://github.com/niktekusho/travis-builds-reporter) for the core packages that made this app possible.
+Checkout [travis-builds-reporter](https://github.com/niktekusho/travis-builds-reporter) for the core packages that made this app possible. :v:
 
 # What's next?
 To do:
