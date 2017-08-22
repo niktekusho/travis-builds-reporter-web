@@ -2,7 +2,7 @@
 
 **travis-builds-reporter-web** is a webapp that makes easy to fetch and display basic builds statistics for a Travis enabled ***public*** repository.
 
-You can find a running instance of this app on [my **personal** heroku](https://travis-builds-reporter.herokuapp.com) ( ***please do not DOS it...*** ).
+You can find a running instance of this app on [my **personal** heroku](https://travis-builds-reporter.herokuapp.com) ( ***please do not DOS it...*** :pray:).
 
 Below you can find a snapshot of what you can expect from this app.
 
@@ -23,10 +23,10 @@ Here we can talk about specific files and list of defined commands for the root 
 
 ### Root files
 
--   [`notes`](./notes): simple text file containing personal notes/reminders (probably I should this delete from the repository but whatever... )
+-   [`notes`](./notes): simple text file containing personal notes/reminders (probably I should this delete from the repository but whatever... :hatched_chick:)
 -   [`package.json`](./package.json): standard JS project manifest
--   [`Procfile`](./Procfile): simple (in this case I'd dare to say... ) text file containing instruction(s) for a [Heroku deploy](https://heroku.com). You can read about Procfiles [here](https://devcenter.heroku.com/articles/procfile).
--   [`yarn.lock`](./yarn.lock): if you do not use [yarn](https://yarnpkg.com), you're definitely not a good person. **Just kidding!** If you want to know more, it's basically a faster (as of 22/08/2017) npm alternative. For more, please take a look at their [website](https://yarnpkg.com).
+-   [`Procfile`](./Procfile): simple (at least in this case I'd dare to say... :bowtie:) text file containing instruction(s) for a [Heroku deploy](https://heroku.com). You can read about Procfiles [here](https://devcenter.heroku.com/articles/procfile).
+-   [`yarn.lock`](./yarn.lock): if you do not use [yarn](https://yarnpkg.com), you're definitely not a good person. **Just kidding!** :joy: In few words, it's basically a faster (as of 22/08/2017) npm alternative. For more, please take a look at their [website](https://yarnpkg.com).
 
 ### Available commands
 
