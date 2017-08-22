@@ -24,6 +24,10 @@ var _path2 = _interopRequireDefault(_path);
 
 var _fs = require('fs');
 
+var _ddos = require('ddos');
+
+var _ddos2 = _interopRequireDefault(_ddos);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function pathFinder(currentDir) {
@@ -40,6 +44,8 @@ function main(rootProjectDir) {
   var backendPackageJson = require(rootProjectDir + '/server/package.json');
   var frontendPackageJson = require(rootProjectDir + '/client/package.json');
   var rootPackageJson = require(rootProjectDir + '/package.json');
+
+  var ddos = new _ddos2.default({ burst: 10, limit: 10 });
 
   function fetchBuilds(requestBody, response) {
     var repository = requestBody.repository;
@@ -60,6 +66,7 @@ function main(rootProjectDir) {
   }
 
   var app = (0, _express2.default)();
+  app.use(ddos.express);
   app.use(_bodyParser2.default.json());
   app.use((0, _cors2.default)());
   app.post('/builds', function (req, res) {
