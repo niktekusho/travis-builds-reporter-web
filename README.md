@@ -36,9 +36,9 @@ Command name     | Usage                                       | Description
 *build*            | `npm run build`                               | Compiles both projects for deployment.
 *build-client*     | `npm run build-client`                        | Compiles frontend for deployment. Creates a static bundle you can serve with any static server.
 *build-server*     | `npm run build-server`                        | Compiles backend for deployment. Uses [babel](https://babeljs.io/).
-*clean*            | `npm run clean`                               | Deletes node_modules directories in both projects.
-*clean-client*     | `npm run clean-client`                        | Deletes node_modules directory in [client](./client/) project.
-*clean-server*     | `npm run clean-server`                        | Deletes node_modules directory in [server](./server/) project.
+*clean*            | `npm run clean`                               | Deletes `node_modules` directories in both projects.
+*clean-client*     | `npm run clean-client`                        | Deletes `node_modules` directory in [client](./client/) project.
+*clean-server*     | `npm run clean-server`                        | Deletes `node_modules` directory in [server](./server/) project.
 *start*            | `npm start`                                   | Starts in **development** mode both the backend and the frontend. It should also open a browser tab/window with the current instance of the app.
 *start:prod*       | `npm run start:prod`                          | Starts only the backend part using the last transpiled source. You should use this only when deploying the application (combined with the envvar NODE_ENV set to "production").
 *start-client*     | `npm run start-client`                        | Starts only the frontend part in **development mode**. It should also open a browser tab/window with the current instance of the app.
