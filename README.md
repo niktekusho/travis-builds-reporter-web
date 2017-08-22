@@ -1,7 +1,7 @@
 # Introduction
 **travis-builds-reporter-web** is a webapp that makes easy to fetch and display basic builds statistics for a Travis enabled ***public*** repository.
 
-You can find a running instance of this app on [my **personal** heroku](https://travis-builds-reporter.herokuapp.com) ( ***please do not DOS it...*** :pray:).
+You can find a running instance of this app on [my **personal** heroku](https://travis-builds-reporter.herokuapp.com) ( ~~***please do not DOS it...*** :pray:~~ Should not be a problem anymore, thanks to [@tommaso1](https://github.com/tommaso1)).
 
 Below you can find a snapshot of what you can expect from this app.
 
@@ -52,7 +52,7 @@ You can build this application on your own using node (check [Node.js](https://n
 Checkout [travis-builds-reporter](https://github.com/niktekusho/travis-builds-reporter) for the core packages that made this app possible. :v:
 
 # Honorable Mentions :bow:
-Wow... looks like no one helped me with this... :cry:
+-   [@tommaso1](https://github.com/tommaso1)
 
 # What's next?
 To do:
